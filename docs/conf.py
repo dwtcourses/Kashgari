@@ -45,6 +45,7 @@ if os.environ.get('READTHEDOCS') == 'True':
         'tensorflow.keras.callbacks',
         'tensorflow.keras.backend',
         'tensorflow.python',
+        'tensorflow.python.util',
         'bert4keras',
         'bert4keras.models',
         'sklearn',
