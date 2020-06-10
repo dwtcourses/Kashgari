@@ -7,6 +7,7 @@
 # file: __init__.py
 # time: 11:22 上午
 
+import warnings
 import tensorflow as tf
 from tensorflow.keras.utils import CustomObjectScope
 
@@ -19,6 +20,13 @@ from .serialize import load_data_object
 
 def custom_object_scope() -> CustomObjectScope:
     return tf.keras.utils.custom_object_scope(custom_objects)
+
+
+def load_model(model_path, *args, **kwargs):
+    warnings.warn("The 'load_model' function is deprecated, "
+                  "use 'XX_Model.load_model' instead", DeprecationWarning, 2)
+    from kashgari.tasks.abs_task_model import ABCTaskModel
+    ABCTaskModel.load_model(model_path=model_path)
 
 
 if __name__ == "__main__":
