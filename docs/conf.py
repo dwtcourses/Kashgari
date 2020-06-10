@@ -78,7 +78,9 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
-    'sphinx_autodoc_typehints'
+    'sphinx_autodoc_typehints',
+    'nbsphinx',
+    'sphinx.ext.mathjax',
 ]
 
 # sphinx_autodoc_typehints settings
@@ -325,11 +327,22 @@ def setup(app):
 
     from m2r import convert
     import typing
+    import shutil
+
     typing.TYPE_CHECKING = True
 
     docs_path = pathlib.Path(__file__).parent
     original_readme = os.path.join(docs_path.parent, 'README.md')
     rst_readme = os.path.join(docs_path, 'README.rst')
+
+    # Copy Examples to docs folder for rendering
+    original_examples_folder = os.path.join(docs_path.parent, 'examples')
+    target_examples_folder = os.path.join(docs_path, 'examples')
+    shutil.rmtree(target_examples_folder, ignore_errors=True)
+
+    shutil.copytree(original_examples_folder,
+                    target_examples_folder,
+                    symlinks=True)
 
     # Change readme to rst file, and include in Sphinx index
     with open(rst_readme, 'w') as f:

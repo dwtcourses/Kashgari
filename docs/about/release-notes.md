@@ -17,6 +17,19 @@ pip show kashgari
 
 ## Current Release
 
+### [2.0.0.alpha] - 2020.06.10
+
+This is a fully re-implemented version with TF2.
+
+- ✨ Embeddings
+- ✨ Text Classification Task
+- ✨ Text Labeling Task
+- ✨ Seq2Seq Task
+- ✨ Examples
+    - ✨ Neural machine translation with Seq2Seq
+    - ✨ Benchmarks
+
+
 ### [1.1.1] - 2020.03.13
 
 - ✨ Add BERTEmbeddingV2.

@@ -6,6 +6,7 @@ sphinx-markdown-tables
 sphinx-autodoc-typehints
 recommonmark
 m2r
+nbsphinx
 
 # dependence
 numpy==1.18.1
